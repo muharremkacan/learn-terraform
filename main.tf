@@ -11,3 +11,12 @@ resource "aws_instance" "ubuntu" {
     Name = var.instance_name
   }
 }
+
+resource "aws_s3_bucket" "b" {
+  id = "my-tf-test-bucket-111"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
