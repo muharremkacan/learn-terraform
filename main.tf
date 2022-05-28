@@ -2,24 +2,17 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
+data "aws_ami_ids" "ubuntu" {
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/ubuntu-*-*-amd64-server-*"]
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["727169617336"] # Canonical
+  owners = ["self"] # Canonical
 }
 
 resource "aws_instance" "ubuntu" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami_ids.ubuntu.id
   instance_type = var.instance_type
 
   tags = {
