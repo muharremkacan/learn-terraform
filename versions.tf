@@ -3,7 +3,7 @@ terraform {
 
   backend "s3" {
     name = "my-s3"
-    bucket = aws_s3_bucket.b
+    bucket = "my-tf-test-bucket-111"
     key = "xxx.tfstate"
     region = var.region
   }
