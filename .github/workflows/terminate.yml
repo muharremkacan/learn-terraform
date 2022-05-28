@@ -4,7 +4,7 @@ name: "terraform apply"
 on: 
   push:
     branches:
-      - "dev"
+      - "main"
 
 jobs: 
   terraform:
@@ -19,15 +19,5 @@ jobs:
         uses: actions/checkout@v3
       - name: setup terraform
         uses: hashicorp/setup-terraform@v1
-      - name: terraform init
-        id: init
-        run: terraform init
-      - name: terraform plan
-        id: plan
-        run: terraform plan
-        continue-on-error: true
-      - name: plan status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
-      - name: terraform apply
-        run: terraform apply -auto-approve
+      - name: terraform destroy
+        run: terraform destroy -auto-approve
