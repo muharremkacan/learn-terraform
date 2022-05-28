@@ -13,7 +13,9 @@ resource "aws_instance" "ubuntu" {
 }
 
 resource "aws_s3_bucket" "b" {
-  id = "my-tf-test-bucket-111"
+  bucket = "timothybucket2123"
+  key = "xx.tfstate"
+  region = "us-east-1"
 
   tags = {
     Name        = "My bucket"
