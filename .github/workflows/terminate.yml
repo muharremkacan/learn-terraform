@@ -1,5 +1,5 @@
 
-name: "terraform apply"
+name: "terraform destroy"
 
 on: 
   push:
@@ -22,5 +22,8 @@ jobs:
       - name: terraform init
         id: init
         run: terraform init
+      - name: terraform plan
+        id: plan
+        run: terraform plan
       - name: terraform destroy
         run: terraform destroy -auto-approve
