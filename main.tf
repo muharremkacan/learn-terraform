@@ -12,10 +12,4 @@ resource "aws_instance" "ubuntu" {
   }
 }
 
-resource "aws_s3_bucket" "b" {
-  bucket = "timothybucket2123"
-  key = "xxx.tfstate"
-  region = "us-east-1"
-
-}
 
