@@ -4,7 +4,7 @@ name: "terraform destroy"
 on: 
   push:
     branches:
-      - "dev"
+      - "main"
 
 jobs: 
   terraform:

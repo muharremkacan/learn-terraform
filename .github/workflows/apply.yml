@@ -4,7 +4,7 @@ name: "terraform apply"
 on: 
   push:
     branches:
-      - "main"
+      - "dev"
 
 jobs: 
   terraform:
